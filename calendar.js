@@ -53,7 +53,7 @@ $( function() {
 		console.log(selectedDate,goodDates,selectedDate in goodDates);
 		if(goodDates.includes(selectedDate)){
 		document.getElementById('invalid').innerHTML = 'Wait for it to load..';
-		  plot(formatDate(tmpDate));
+		  plot(formatDate(selectedDate));
 		}else{
 		document.getElementById('invalid').innerHTML = formatDate(selectedDate) + ' is not valid. pick one from … '+goodDates;
 		}

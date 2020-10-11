@@ -1,5 +1,13 @@
 var goodDates = ['10/01/2020','10/06/2020','08/23/2020','10/10/2020','10/09/2020','10/08/2020','10/07/2020','10/06/2020','10/05/2020','10/04/2020','10/03/2020','10/02/2020','10/01/2020','10/01/2020','10/10/2020','10/10/2020'];
 
+function formatDate(d){
+  var date_ =d.split("/");
+  var tmpDate = date_[2]+"-"+date_[0]+"-"+date_[1];
+  return tmpDate
+}
+
+plot(formatDate(goodDates[goodDates.length-1]));
+
 // datepicker
 $('#datepicker').datepicker({
     beforeShowDay: function( date ) {
@@ -44,10 +52,10 @@ $( function() {
 		var selectedDate = this.value;
 		console.log(selectedDate,goodDates,selectedDate in goodDates);
 		if(goodDates.includes(selectedDate)){
-		  var date_ =selectedDate.split("/");
-		  var tmpDate = date_[2]+"-"+date_[0]+"-"+date_[1];
-		  console.log(tmpDate);
-		  plot(tmpDate);
+		document.getElementById('invalid').innerHTML = 'Wait for it to load..';
+		  plot(formatDate(tmpDate));
+		}else{
+		document.getElementById('invalid').innerHTML = formatDate(selectedDate) + ' is not valid. pick one from … '+goodDates;
 		}
   });
 });

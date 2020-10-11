@@ -17,6 +17,20 @@ function plot(date){
   
     var layout = {
       title: 'YouTube Live Time Series ('+date+')',
+      xaxis: {
+        automargin: true,
+        tickangle: 90,
+        title: {
+          text: "Timestamp",
+          standoff: 20
+        }},
+      yaxis: {
+        automargin: true,
+        tickangle: 90,
+        title: {
+          text: "Viewers",
+          standoff: 40
+        }}
     };
     
     Plotly.newPlot('graph', data,layout)
